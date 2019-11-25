@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<figure class="highcharts-figure" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        
+    </p>
+</figure>
+
+
+    
+</head>
+<body>
+    
+
+<script>
+    Highcharts.chart('container', {
+    chart: {
+        zoomType: 'xy'
+    },
+    title: {
+        text: "Jason Statham's Top Movies: Ratings Don't Always Translate Into Sales"
+    },
+    subtitle: {
+        text: 'Source: www.imdb.com'
+    },
+    xAxis: [{
+        categories: ['The Meg', 'Furious 7', 'Homefront', 'The Expendables 2', 'Gnomeo & Juliet', 'Crank: High Voltage',
+            'Crank', 'Hobbs & Shaw', 'Spy', 'Collateral'],
+        crosshair: true
+    }],
+    yAxis: [{ // Primary yAxis
+        labels: {
+            format: '{value}',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        },
+        title: {
+            text: 'Rating',
+            style: {
+                color: Highcharts.getOptions().colors[1]
+            }
+        }
+    }, { // Secondary yAxis
+        title: {
+            text: 'Worldwide Gross',
+            style: {
+                color: Highcharts.getOptions().colors[0]
+            }
+        },
+        labels: {
+            format: '${value}',
+            style: {
+                color: Highcharts.getOptions().colors[0]
+            }
+        },
+        opposite: true
+    }],
+    tooltip: {
+        shared: true
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'left',
+        x: 500,
+        verticalAlign: 'top',
+        y: 30,
+        floating: true,
+        backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || // theme
+            'rgba(255,255,255,0.25)'
+    },
+    series: [{
+        name: 'Worldwide Gross',
+        type: 'column',
+        yAxis: 1,
+        data: [530243742, 1515047671, 43058898, 314975955, 193967670, 34561792, 42931a041, 758910100, 235666219,217663246],
+        tooltip: {
+            valuePrefix: '$'
+        }
+
+    }, {
+        name: 'Rating',
+        type: 'spline',
+        data: [5.7, 7.2, 6.5, 6.6, 5.9, 6.2, 6.9, 6.5, 7.0, 7.5],
+        tooltip: {
+            valueSuffix: ''
+        }
+    }]
+});
+    </script>
+</body>
+</html>
+

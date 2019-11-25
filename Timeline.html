@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+
+<figure class="highcharts-figure" style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        
+    </p>
+</figure>
+    
+</head>
+<body>
+    
+
+    <script>
+    Highcharts.chart('container', {
+
+chart: {
+    type: 'bubble',
+    plotBorderWidth: 1,
+    zoomType: 'xy'
+},
+
+legend: {
+    enabled: false
+},
+
+title: {
+    text: "Jason Statham's Top Grossing Movies: Solo or Group Movies?"
+},
+
+subtitle: {
+    text: 'Source: www.imdb.com'
+},
+
+accessibility: {
+    point: {
+        descriptionFormatter: function (point) {
+            var index = point.index + 1,
+                country = point.name,
+                fatIntake = point.x,
+                sugarIntake = point.y;
+
+            return index + ', ' + country + ', Year Made: ' + fatIntake +
+                'Gross: ' + sugarIntake;
+        }
+    }
+},
+
+xAxis: {
+    tickInterval: 2,
+    gridLineWidth: 1,
+    title: {
+        text: 'Year Made'
+    },
+    labels: {
+        format: '{value}'
+    },
+    plotLines: [{
+        color: 'black',
+        dashStyle: 'dot',
+        width: 2,
+        value: 65,
+        label: {
+            rotation: 0,
+            y: 15,
+            style: {
+                fontStyle: 'italic'
+            },
+            text: ''
+        }
+    }],
+    accessibility: {
+        rangeDescription: ''
+    }
+},
+
+yAxis: {
+    visible:false,
+    startOnTick: false,
+    endOnTick: false,
+    title: {
+        text: 'Daily sugar intake'
+    },
+    labels: {
+        format: '{value}'
+    },
+    maxPadding: 0.2,
+    plotLines: [{
+        color: 'black',
+        dashStyle: 'dot',
+        width: 2,
+        value: 50,
+        label: {
+            align: 'right',
+            style: {
+                fontStyle: 'italic'
+            },
+            text: 'Safe sugar intake 50g/day',
+            x: -10
+        }
+    }],
+    accessibility: {
+        rangeDescription: 'Range: 0 to 160 grams.'
+    }
+},
+
+tooltip: {
+    useHTML: true,
+    headerFormat: '<table>',
+    pointFormat: '<tr><th colspan="2"><h3>{point.country}</h3></th></tr>' +
+        '<tr><th>Year Made:</th><td>{point.x}</td></tr>' +
+        '<tr><th>Worldwide Gross:</th><td>${point.y}</td></tr>',
+    footerFormat: '</table>',
+    followPointer: true
+},
+
+plotOptions: {
+    series: {
+        dataLabels: {
+            enabled: true,
+            format: '{point.name}'
+        }
+    }
+},
+
+series: [{
+    data: [
+        { x: 2002, y: 43928932, z:5, name: 'Transporter', country: 'Transporter' },
+        { x: 2005, y: 85167639,z:20, name: 'Transporter 2', country: 'Transporter 2' },
+        { x: 2008, y: 108979549, z:30,name: 'Transporter 3', country: 'Transporter 3' },
+        { x: 2010, y: 274470394, z:80,name: 'The Expendables', country: 'The Expendables'},
+        { x: 2011, y: 76129642, z:20,name: 'The Mechanic', country: 'The Mechanic' },
+        { x: 2012, y: 473872921, z:100,name: 'The Expendables 2', country: 'The Expendables 2'},
+        { x: 2015, y: 1515047671, z:220,name: 'Furious 7', country: 'Furious 7' },
+        { x: 2017, y: 1236005118, z:140,name: 'Fate of the Furious', country: 'The Fate of the Furious' },
+        { x: 2018, y: 530243742, z:100,name: 'The Meg', country: 'The Meg' }
+    ]
+}]
+
+});
+    </script>
+</body>
+</html>
+

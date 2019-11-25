@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/wordcloud.js"></script>
+    <div id="container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
+</head>
+<body>
+    
+
+    <script>
+    var lines = text.split(/[,\. ]+/g),
+    
+    data = [{'name': 'murder', 'weight': 90},
+ {'name': 'shot to death', 'weight': 74},
+ {'name': 'violence', 'weight': 62},
+ {'name': 'pistol', 'weight': 52},
+ {'name': 'shot in the chest', 'weight': 42},
+ {'name': 'death', 'weight': 38},
+ {'name': 'blood', 'weight': 35},
+ {'name': 'tough guy', 'weight': 29},
+ {'name': 'shootout', 'weight': 28},
+ {'name': 'machine gun', 'weight': 27},
+ {'name': 'hand to hand combat', 'weight': 27},
+ {'name': 'martial arts', 'weight': 27},
+ {'name': 'fistfight', 'weight': 27},
+ {'name': 'blood splatter', 'weight': 27},
+ {'name': 'shot in the head', 'weight': 27},
+ {'name': 'punched in the face', 'weight': 26},
+ {'name': 'brawl', 'weight': 26},
+ {'name': 'revenge', 'weight': 25},
+ {'name': 'flashback', 'weight': 25},
+ {'name': 'held at gunpoint', 'weight': 25},
+ {'name': 'mixed martial arts', 'weight': 24},
+ {'name': 'bare chested male', 'weight': 23},
+ {'name': 'explosion', 'weight': 23},
+ {'name': 'cell phone', 'weight': 23},
+ {'name': 'showdown', 'weight': 21},
+ {'name': 'action hero', 'weight': 21},
+ {'name': 'beating', 'weight': 21},
+ {'name': 'knife', 'weight': 20},
+ {'name': 'surprise ending', 'weight': 20},
+ {'name': 'car chase', 'weight': 20},
+ {'name': 'shotgun', 'weight': 20},
+ {'name': 'hostage', 'weight': 20},
+ {'name': 'shot in the back', 'weight': 20},
+ {'name': 'title spoken by character', 'weight': 19},
+ {'name': 'fight', 'weight': 19},
+ {'name': 'kidnapping', 'weight': 19},
+ {'name': 'slow motion scene', 'weight': 18},
+ {'name': 'helicopter', 'weight': 18}];
+    
+
+Highcharts.chart('container', {
+    series: [{
+        type: 'wordcloud',
+        data: data,
+        name: 'Occurrences'
+    }],
+    title: {
+        text: 'Wordcloud of Lorem Ipsum'
+    }
+});
+    </script>
+</body>
+</html>
+
